@@ -1,10 +1,13 @@
 import os, sys
 
-def placeholder_notific_fn():
-	print("PLACEHOLDER CALLED")
+from error_notify.notification import Notify
+
+def notification(type_, value, traceback):
+	notify = Notify(type_, value, traceback)
+	notify.notify_system()
 
 def CustomExceptHook(type_, value, traceback):
-	placeholder_notific_fn() # call notification function
+	notification(type_, value, traceback) # call notification function
 	tempExceptHook(type_, value, traceback)
 
 tempExceptHook = sys.excepthook
