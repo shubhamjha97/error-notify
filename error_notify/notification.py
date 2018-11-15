@@ -13,7 +13,7 @@ class Notify(object):
 	def notify(self):
 		self.echo_to_console()
 		self.notify_system()
-		self.telegram_send()
+		self.notify_telegram()
 
 	def echo_to_console(self):
 		listing = traceback.format_exception(self.type_, self.value, self.traceback)
@@ -23,7 +23,7 @@ class Notify(object):
 	def notify_system(self):
 		os.system("notify-send '{}' '{} at line number {}'".format(self.type_, self.value, self.traceback.tb_lineno))
 
-	def telegram_send(self):
+	def notify_telegram(self):
 		listing = traceback.format_exception(self.type_, self.value, self.traceback)
 		del listing[1]
 		final_msg = "<b>Error at line {} in file {}</b> \n".format(self.traceback.tb_lineno, sys.argv[0])

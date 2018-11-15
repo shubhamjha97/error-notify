@@ -1,11 +1,11 @@
 import os, sys
-from error_notify.decorators import partial_override, override_class
+from error_notify.decorators import override_function, override_class
 
+# total_override
 def test_total_override():
 	temp = "total"/0
 
-# partial_override
-
+# override_function
 @partial_override
 def test_partial_override():
 	temp = "partial"/0
