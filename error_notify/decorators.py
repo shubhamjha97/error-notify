@@ -3,7 +3,7 @@ import os, sys
 
 from error_notify.notification import notification_handler
 
-def partial_override(func):
+def override_function(func):
     def wrapper(*args, **kw):
         try:
             func(*args, **kw)
